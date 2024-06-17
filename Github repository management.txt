@@ -1,0 +1,3 @@
+Github repository management
+GitBash - para los comandos para usar la terminal de git bash
+Repositorio - Es una carpeta que git sincroniza con la cuenta, hace revision de cambios y las trackea para crear versiones.
