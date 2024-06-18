@@ -11,8 +11,6 @@ public class Estudiante {
     private String direccion;
     private String codigoUsuario;
 
-    // Constructor vacío requerido para Firebase
-    public Estudiante() {}
 
     // Constructor con parámetros
     public Estudiante(String codigoEstudiante, String nombre, String apellido, String dni, String correoElectronico, String telefono, String direccion, String codigoUsuario) {

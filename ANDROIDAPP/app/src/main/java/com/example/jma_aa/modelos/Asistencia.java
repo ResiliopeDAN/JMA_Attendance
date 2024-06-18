@@ -7,7 +7,7 @@ public class Asistencia {
     private String codigoEstudiante;
     private Date fecha;
     private String estado;
-    private String codigoMatricula;
+
 
     // Constructor vacío requerido para Firebase
     public Asistencia() {}
@@ -18,7 +18,6 @@ public class Asistencia {
         this.codigoEstudiante = codigoEstudiante;
         this.fecha = fecha;
         this.estado = estado;
-        this.codigoMatricula = codigoMatricula;
     }
 
     // Getters y Setters
@@ -52,13 +51,5 @@ public class Asistencia {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public String getCodigoMatricula() {
-        return codigoMatricula;
-    }
-
-    public void setCodigoMatricula(String codigoMatricula) {
-        this.codigoMatricula = codigoMatricula;
     }
 }

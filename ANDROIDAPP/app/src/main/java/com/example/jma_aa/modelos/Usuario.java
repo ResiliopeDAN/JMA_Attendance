@@ -4,17 +4,17 @@ public class Usuario {
 
     private String codigoUsuario;
     private String nombreUsuario;
-    private String contraseña;
+    private String contrasenia;
     private String rol; // Director, Auxiliar, Estudiante
 
     // Constructor vacío requerido para Firebase
     public Usuario() {}
 
     // Constructor con parámetros
-    public Usuario(String codigoUsuario, String nombreUsuario, String contraseña, String rol) {
+    public Usuario(String codigoUsuario, String nombreUsuario, String contrasenia, String rol) {
         this.codigoUsuario = codigoUsuario;
         this.nombreUsuario = nombreUsuario;
-        this.contraseña = contraseña;
+        this.contrasenia = contrasenia;
         this.rol = rol;
     }
 
@@ -35,12 +35,12 @@ public class Usuario {
         this.nombreUsuario = nombreUsuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     public String getRol() {
