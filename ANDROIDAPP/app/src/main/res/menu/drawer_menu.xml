@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_aperturar_ano"
+        android:title="Aperturar Año Académico"
+        android:icon="@drawable/ic_calendar" />
+    <item android:id="@+id/nav_crear_seccion"
+        android:title="Crear Sección"
+        android:icon="@drawable/ic_section" />
+    <item android:id="@+id/nav_matricular_estudiante"
+        android:title="Matricular Estudiante"
+        android:icon="@drawable/ic_enroll" />
+    <item android:id="@+id/nav_dar_baja_estudiante"
+        android:title="Dar de Baja Estudiante"
+        android:icon="@drawable/ic_delete" />
+    <item android:id="@+id/nav_generar_reportes"
+        android:title="Generar Reportes"
+        android:icon="@drawable/ic_report" />
+</menu>
