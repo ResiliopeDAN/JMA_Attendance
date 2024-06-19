@@ -88,6 +88,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
                         new GenerarReportesFragment()).commit();
                 break;
+            case R.id.nav_registrar_asistencia:
+                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
+                        new RegistrarAsistenciaFragment()).commit();
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

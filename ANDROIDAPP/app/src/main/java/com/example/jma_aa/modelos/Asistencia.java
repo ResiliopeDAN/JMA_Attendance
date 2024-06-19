@@ -13,7 +13,7 @@ public class Asistencia {
     public Asistencia() {}
 
     // Constructor con parámetros
-    public Asistencia(String codigoAsistencia, String codigoEstudiante, Date fecha, String estado, String codigoMatricula) {
+    public Asistencia(String codigoAsistencia, String codigoEstudiante, Date fecha, String estado) {
         this.codigoAsistencia = codigoAsistencia;
         this.codigoEstudiante = codigoEstudiante;
         this.fecha = fecha;

@@ -1,0 +1,7 @@
+<resources>
+    <string-array name="estados_asistencia">
+        <item>Presente</item>
+        <item>Ausente</item>
+        <item>Tardanza</item>
+    </string-array>
+</resources>

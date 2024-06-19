@@ -15,4 +15,7 @@
     <item android:id="@+id/nav_generar_reportes"
         android:title="Generar Reportes"
         android:icon="@drawable/ic_report" />
+    <item android:id="@+id/nav_registrar_asistencia"
+        android:title="Registrar Asistencia"
+        android:icon="@drawable/ic_check" />
 </menu>
