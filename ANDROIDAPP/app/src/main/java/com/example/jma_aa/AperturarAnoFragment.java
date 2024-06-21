@@ -23,7 +23,7 @@ public class AperturarAnoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_aperturar_ano, container, false):
+        View view = inflater.inflate(R.layout.fragment_aperturar_ano, container, false);
 
         etAnio = view.findViewById(R.id.etAnio);
         btnAperturarAno = view.findViewById(R.id.btnAperturarAno);
@@ -38,7 +38,7 @@ public class AperturarAnoFragment extends Fragment {
                     Toast.makeText(getActivity(), "Por favor, ingrese el nombre del año académico", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    String codigoAno = UUID.randomUUID().toString();
+                    String codigoAnio = UUID.randomUUID().toString();
                     AnioAcademico anioAcademico = new AnioAcademico(codigoAnio, anio);
                     anioAcademicoController.addAnioAcademico(anioAcademico);
                     Toast.makeText(getContext(), "Años académico aperturado con éxito", Toast.LENGTH_SHORT).show();

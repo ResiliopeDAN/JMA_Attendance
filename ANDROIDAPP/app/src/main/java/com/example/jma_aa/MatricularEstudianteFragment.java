@@ -63,7 +63,7 @@ public class MatricularEstudianteFragment extends Fragment {
                     String codigoUsuario = UUID.randomUUID().toString();
                     //String anioActual = String.ValueOf(new Date().getYear() + 1900); //IMPLEMENTAR EL CONTROLOADOR DE ANIO ACADEMICO
                     String nombreUsuario = dni; // Establezo el DNI como usuario del Estudiante
-                    String contrasenia = anioActual + "JMA";
+                    String contrasenia = NombreAnioAcademico + "JMA";
 
                     Estudiante estudiante = new Estudiante(codigoEstudiante, nombre, apellido, dni, correoElectronico, telefono, direccion, codigoUsuario);
                     Usuario usuario = new Usuario(codigoUsuario, nombreUsuario, contrasenia, "estudiante");

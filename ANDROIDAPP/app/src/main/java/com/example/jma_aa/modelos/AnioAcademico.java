@@ -3,15 +3,15 @@ package com.example.jma_aa.modelos;
 public class AnioAcademico {
 
     private String codigoAnioAcademico;
-    private int anio;
+    private String nombreAnioAcademico;
 
     // Constructor vacío requerido para Firebase
     public AnioAcademico() {}
 
     // Constructor con parámetros
-    public AnioAcademico(String codigoAnioAcademico, int anio) {
+    public AnioAcademico(String codigoAnioAcademico, String nombreAnioAcademico) {
         this.codigoAnioAcademico = codigoAnioAcademico;
-        this.anio = anio;
+        this.nombreAnioAcademico = nombreAnioAcademico;
     }
 
     // Getters y Setters
@@ -23,12 +23,12 @@ public class AnioAcademico {
         this.codigoAnioAcademico = codigoAnioAcademico;
     }
 
-    public int getAnio() {
-        return anio;
+    public String getNombreAnioAcademico() {
+        return nombreAnioAcademico;
     }
 
-    public void setAnio(int anio) {
-        this.anio = anio;
+    public void setNombreAnioAcademico(String nombreAnioAcademico) {
+        this.nombreAnioAcademico = nombreAnioAcademico;
     }
 
 }

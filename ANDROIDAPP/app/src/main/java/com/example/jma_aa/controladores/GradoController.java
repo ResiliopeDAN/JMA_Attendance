@@ -13,15 +13,33 @@ public class GradoController {
     public void addGrado(Grado grado) {
         String key = db.collection("Grados").document().getId();
         grado.setCodigoGrado(key);
-        db.collection("Grados").document(key).set(grado);
+        db.collection("Grados").document(key).set(grado)
+                .addOnSuccessListener(aVoid -> {
+                    // Acción cuando el grado se agrega correctamente
+                })
+                .addOnFailureListener(e -> {
+                    // Acción cuando ocurre un error
+                });
     }
 
     public void updateGrado(String key, Grado grado) {
-        db.collection("Grados").document(key).set(grado);
+        db.collection("Grados").document(key).set(grado)
+                .addOnSuccessListener(aVoid -> {
+                    // Acción cuando el grado se agrega correctamente
+                })
+                .addOnFailureListener(e -> {
+                    // Acción cuando ocurre un error
+                });
     }
 
     public void deleteGrado(String key) {
-        db.collection("Grados").document(key).delete();
+        db.collection("Grados").document(key).delete()
+                .addOnSuccessListener(aVoid -> {
+                    // Acción cuando el grado se agrega correctamente
+                })
+                .addOnFailureListener(e -> {
+                    // Acción cuando ocurre un error
+                });
     }
 
     // Métodos para leer datos se pueden agregar aquí

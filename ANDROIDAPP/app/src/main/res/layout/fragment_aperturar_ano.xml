@@ -13,7 +13,7 @@
         android:paddingBottom="16dp" />
 
     <EditText
-        android:id="@+id/etAnoAcademico"
+        android:id="@+id/etAnio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Año Académico" />

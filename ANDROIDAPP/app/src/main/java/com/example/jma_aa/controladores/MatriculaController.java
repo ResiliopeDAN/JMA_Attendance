@@ -13,15 +13,33 @@ public class MatriculaController {
     public void addMatricula(Matricula matricula) {
         String key = db.collection("Matriculas").document().getId();
         matricula.setCodigoMatricula(key);
-        db.collection("Matriculas").document(key).set(matricula);
+        db.collection("Matriculas").document(key).set(matricula)
+                .addOnSuccessListener(aVoid -> {
+                    // Acción cuando el grado se agrega correctamente
+                })
+                .addOnFailureListener(e -> {
+                    // Acción cuando ocurre un error
+                });
     }
 
     public void updateMatricula(String key, Matricula matricula) {
-        db.collection("Matriculas").document(key).set(matricula);
+        db.collection("Matriculas").document(key).set(matricula)
+                .addOnSuccessListener(aVoid -> {
+                    // Acción cuando el grado se agrega correctamente
+                })
+                .addOnFailureListener(e -> {
+                    // Acción cuando ocurre un error
+                });
     }
 
     public void deleteMatricula(String key) {
-        db.collection("Matriculas").document(key).delete();
+        db.collection("Matriculas").document(key).delete()
+                .addOnSuccessListener(aVoid -> {
+                    // Acción cuando el grado se agrega correctamente
+                })
+                .addOnFailureListener(e -> {
+                    // Acción cuando ocurre un error
+                });
     }
 
     // Métodos para leer datos se pueden agregar aquí
