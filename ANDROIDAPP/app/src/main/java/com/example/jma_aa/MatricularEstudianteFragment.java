@@ -8,11 +8,16 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.Button;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.example.jma_aa.modelos.Estudiante;
+import com.example.jma_aa.controladores.EstudianteController;
 import com.example.jma_aa.modelos.Usuario;
+import com.example.jma_aa.controladores.UsuarioController;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Date;
 import java.util.UUID;
 import java.util.Calendar;
 
@@ -20,11 +25,13 @@ public class MatricularEstudianteFragment extends Fragment {
 
     private EditText etNombre, etApellido, etDNI, etCorreoElectronico, etTelefono, etDireccion;
     private Button btnGuardarMatricula;
+    private EstudianteController estudianteController;
+    private UsuarioController usuarioController;
     private FirebaseFirestore db;
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_matricular_estudiante, container, false);
 
         etNombre = view.findViewById(R.id.etNombre);
@@ -34,6 +41,9 @@ public class MatricularEstudianteFragment extends Fragment {
         etTelefono = view.findViewById(R.id.etTelefono);
         etDireccion = view.findViewById(R.id.etDireccion);
         btnGuardarMatricula = view.findViewById(R.id.btnGuardarMatricula);
+        estudianteController = new EstudianteController();
+        usuarioController = new UsuarioController();
+
         db = FirebaseFirestore.getInstance();
 
         btnGuardarMatricula.setOnClickListener(new View.OnClickListener() {
@@ -51,8 +61,9 @@ public class MatricularEstudianteFragment extends Fragment {
                 } else {
                     String codigoEstudiante = UUID.randomUUID().toString();
                     String codigoUsuario = UUID.randomUUID().toString();
+                    //String anioActual = String.ValueOf(new Date().getYear() + 1900); //IMPLEMENTAR EL CONTROLOADOR DE ANIO ACADEMICO
                     String nombreUsuario = dni; // Establezo el DNI como usuario del Estudiante
-                    String contrasenia = generarContrasenia();
+                    String contrasenia = anioActual + "JMA";
 
                     Estudiante estudiante = new Estudiante(codigoEstudiante, nombre, apellido, dni, correoElectronico, telefono, direccion, codigoUsuario);
                     Usuario usuario = new Usuario(codigoUsuario, nombreUsuario, contrasenia, "estudiante");
@@ -71,8 +82,4 @@ public class MatricularEstudianteFragment extends Fragment {
         return view;
     }
 
-    private String generarContrasenia() {
-        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        return currentYear + "JMA";
-    }
 }
