@@ -8,21 +8,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aperturar Año Académico"
+        android:text="Seleccione el Año Académico"
         android:textSize="18sp"
         android:paddingBottom="16dp" />
 
-    <EditText
-        android:id="@+id/etAnio"
+    <Spinner
+        android:id="@+id/spinnerAnio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:maxLength="4"
-        android:hint="Ingrese el año académico (Ej: 2024)" />
+        android:hint="Año Académico" />
 
     <Button
-        android:id="@+id/btnAperturarAno"
+        android:id="@+id/btnSeleccionarAnio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Aperturar Año" />
+        android:text="Seleccionar Año" />
 </LinearLayout>

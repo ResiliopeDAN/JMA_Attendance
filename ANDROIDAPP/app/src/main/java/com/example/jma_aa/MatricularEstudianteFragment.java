@@ -15,7 +15,9 @@ import com.example.jma_aa.modelos.Estudiante;
 import com.example.jma_aa.controladores.EstudianteController;
 import com.example.jma_aa.modelos.Usuario;
 import com.example.jma_aa.controladores.UsuarioController;
+import com.example.jma_aa.modelos.AnioAcademico;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.example.jma_aa.controladores.AnioAcademicoController;
 
 import java.util.Date;
 import java.util.UUID;
@@ -27,6 +29,7 @@ public class MatricularEstudianteFragment extends Fragment {
     private Button btnGuardarMatricula;
     private EstudianteController estudianteController;
     private UsuarioController usuarioController;
+    private String nombreAnioAcademico;
     private FirebaseFirestore db;
 
     @Nullable
@@ -46,6 +49,9 @@ public class MatricularEstudianteFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
 
+        obtenerNombreAnioAcademico();
+
+
         btnGuardarMatricula.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +69,7 @@ public class MatricularEstudianteFragment extends Fragment {
                     String codigoUsuario = UUID.randomUUID().toString();
                     //String anioActual = String.ValueOf(new Date().getYear() + 1900); //IMPLEMENTAR EL CONTROLOADOR DE ANIO ACADEMICO
                     String nombreUsuario = dni; // Establezo el DNI como usuario del Estudiante
-                    String contrasenia = NombreAnioAcademico + "JMA";
+                    String contrasenia = nombreAnioAcademico + "JMA";
 
                     Estudiante estudiante = new Estudiante(codigoEstudiante, nombre, apellido, dni, correoElectronico, telefono, direccion, codigoUsuario);
                     Usuario usuario = new Usuario(codigoUsuario, nombreUsuario, contrasenia, "estudiante");
@@ -80,6 +86,20 @@ public class MatricularEstudianteFragment extends Fragment {
         });
 
         return view;
+    }
+    private void obtenerNombreAnioAcademico() {
+        AnioAcademicoController anioAcademicoController = new AnioAcademicoController();
+        anioAcademicoController.getAnioAcademicoActual(new AnioAcademicoController.OnAnioAcademicoLoadedListener() {
+            @Override
+            public void onSuccess(AnioAcademico anioAcademicoResult) {
+                nombreAnioAcademico = anioAcademicoResult.getNombreAnioAcademico();
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                Toast.makeText(getActivity(), "Error al obtener el año académico", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }
