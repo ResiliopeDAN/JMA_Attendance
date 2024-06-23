@@ -12,23 +12,20 @@
         android:textSize="18sp"
         android:paddingBottom="16dp" />
 
+    <Spinner
+        android:id="@+id/spinnerGrado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <EditText
         android:id="@+id/etNombreSeccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nombre de la Sección" />
 
-    <EditText
-        android:id="@+id/etCodigoGrado"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Código del Grado"
-        android:layout_marginTop="8dp" />
-
     <Button
-        android:id="@+id/btnGuardarSeccion"
+        android:id="@+id/btnCrearSeccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar Sección"
-        android:layout_marginTop="16dp" />
+        android:text="Crear Sección" />
 </LinearLayout>

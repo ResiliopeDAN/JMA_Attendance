@@ -20,6 +20,10 @@ import java.util.UUID;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import com.example.jma_aa.modelos.AnioAcademico;
+
 public class AperturarAnoFragment extends Fragment {
 
     private EditText etAnio;
@@ -43,7 +47,7 @@ public class AperturarAnoFragment extends Fragment {
                 String anio = etAnio.getText().toString().trim();
 
                 if (anio.isEmpty()) {
-                    Toast.makeText(getActivity(), "Por favor, ingrese el nombre del año académico", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Por favor, ingrese el año académico", Toast.LENGTH_SHORT).show();
                 } else {
 
                     String codigoAnio = UUID.randomUUID().toString();
@@ -51,11 +55,16 @@ public class AperturarAnoFragment extends Fragment {
                     anioAcademicoController.addAnioAcademico(anioAcademico, new AnioAcademicoController.AnioAcademicoCallback() {
                         @Override
                         public void onCallback(List<AnioAcademico> anioAcademicoList) {
-
                         }
 
                         @Override
                         public void onSuccess() {
+                            // Guardar el año académico en SharedPreferences para que todas las demás clases puedan usarlas.
+                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("AppPrefs", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("SelectedAnioAcademico", codigoAnio);
+                            editor.apply();
+
                             // Crear grados predeterminados al aperturar año académico
                             List<Grado> gradosPredeterminados = Arrays.asList(
                                     new Grado("", "1er Grado", "1er Grado del " + anio),
