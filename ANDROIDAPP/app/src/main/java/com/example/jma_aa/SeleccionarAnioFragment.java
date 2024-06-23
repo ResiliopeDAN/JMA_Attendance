@@ -44,6 +44,15 @@ public class SeleccionarAnioFragment extends Fragment {
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerAnio.setAdapter(adapter);
             }
+
+            @Override
+            public void onSuccess() {
+
+            }
+            @Override
+            public void onFailure(Exception e) {
+                Toast.makeText(getContext(), "Error al cargar los años academicos" + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
 
         btnSeleccionarAnio.setOnClickListener(new View.OnClickListener() {

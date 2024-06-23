@@ -14,12 +14,14 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.core.graphics.Insets;
 import com.google.android.material.navigation.NavigationView;
+import androidx.fragment.app.Fragment;
 
 import com.example.jma_aa.AperturarAnoFragment;
 import com.example.jma_aa.CrearSeccionFragment;
 import com.example.jma_aa.MatricularEstudianteFragment;
 import com.example.jma_aa.DarBajaEstudianteFragment;
 import com.example.jma_aa.GenerarReportesFragment;
+import com.example.jma_aa.SeleccionarAnioFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -67,31 +69,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        Fragment selectedFragment = null;
+
         switch (item.getItemId()) {
             case R.id.nav_aperturar_ano:
-                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
-                        new AperturarAnoFragment()).commit();
+                selectedFragment = new AperturarAnoFragment();
                 break;
             case R.id.nav_crear_seccion:
-                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
-                        new CrearSeccionFragment()).commit();
+                selectedFragment = new CrearSeccionFragment();
                 break;
             case R.id.nav_matricular_estudiante:
-                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
-                        new MatricularEstudianteFragment()).commit();
+                selectedFragment = new MatricularEstudianteFragment();
                 break;
             case R.id.nav_dar_baja_estudiante:
-                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
-                        new DarBajaEstudianteFragment()).commit();
+                selectedFragment = new DarBajaEstudianteFragment();
                 break;
             case R.id.nav_generar_reportes:
-                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
-                        new GenerarReportesFragment()).commit();
+                selectedFragment = new GenerarReportesFragment();
                 break;
             case R.id.nav_registrar_asistencia:
-                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
-                        new RegistrarAsistenciaFragment()).commit();
+                selectedFragment = new RegistrarAsistenciaFragment();
                 break;
+            case R.id.nav_seleccionar_anio:
+                selectedFragment = new SeleccionarAnioFragment();
+                break;
+        }
+
+        if (selectedFragment != null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
+                    selectedFragment).commit();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

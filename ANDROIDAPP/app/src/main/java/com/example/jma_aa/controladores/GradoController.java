@@ -10,10 +10,10 @@ public class GradoController {
         db = FirebaseFirestore.getInstance();
     }
 
-    public void addGrado(Grado grado) {
-        String key = db.collection("Grados").document().getId();
+    public void addGrado(String anioAcademicoId, Grado grado) {
+        String key = db.collection("AniosAcademicos").document(anioAcademicoId).collection("Grados").document().getId();
         grado.setCodigoGrado(key);
-        db.collection("Grados").document(key).set(grado)
+        db.collection("AniosAcademicos").document(anioAcademicoId).collection("Grados").document(key).set(grado)
                 .addOnSuccessListener(aVoid -> {
                     // Acción cuando el grado se agrega correctamente
                 })
@@ -22,8 +22,8 @@ public class GradoController {
                 });
     }
 
-    public void updateGrado(String key, Grado grado) {
-        db.collection("Grados").document(key).set(grado)
+    public void updateGrado(String codigoAnioAcademico, String key, Grado grado) {
+        db.collection("AniosAcademicos").document(codigoAnioAcademico).collection("Grados").document(key).set(grado)
                 .addOnSuccessListener(aVoid -> {
                     // Acción cuando el grado se agrega correctamente
                 })
@@ -32,10 +32,10 @@ public class GradoController {
                 });
     }
 
-    public void deleteGrado(String key) {
-        db.collection("Grados").document(key).delete()
+    public void deleteGrado(String codigoAnioAcademico, String key) {
+        db.collection("AniosAcademicos").document(codigoAnioAcademico).collection("Grados").document(key).delete()
                 .addOnSuccessListener(aVoid -> {
-                    // Acción cuando el grado se agrega correctamente
+                    // Acción cuando el grado se elimina correctamente
                 })
                 .addOnFailureListener(e -> {
                     // Acción cuando ocurre un error

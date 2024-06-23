@@ -18,4 +18,7 @@
     <item android:id="@+id/nav_registrar_asistencia"
         android:title="Registrar Asistencia"
         android:icon="@drawable/ic_check" />
+    <item android:id="@+id/nav_seleccionar_anio"
+        android:title="Seleccionar Año Académico"
+        android:icon="@drawable/ic_select_year" />
 </menu>
