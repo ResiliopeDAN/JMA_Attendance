@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenido al Sistema de Gestión de Asistencia de la IES José María Arguedas"
+        android:text="Bienvenido al Sistema de Gestión de Asistencia de la IES José María Arguedas 2024"
         android:textSize="18sp"
         android:textColor="@android:color/black"
         android:textAlignment="center"/>
